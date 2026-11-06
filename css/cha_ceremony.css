@@ -1,0 +1,414 @@
+/* Сброс стилей и базовые настройки */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #faf6f0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Цветовая палитра */
+:root {
+    --primary-green: #4a7c59;
+    --beige: #faf6f0;
+    --terracotta: #c16e56;
+    --text-dark: #2c3e50;
+    --text-light: #faf6f0;
+}
+
+/* Header и фиксированное меню */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--beige);
+    border-bottom: 1px solid #e0d8c8;
+    z-index: 1000;
+    backdrop-filter: blur(8px);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-green);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--primary-green);
+}
+
+/* Hero-блок */
+.hero {
+    padding: 120px 20px 80px;
+    text-align: center;
+    background: linear-gradient(135deg, var(--beige) 0%, #f0e8d5 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "🍵";
+    position: absolute;
+    font-size: 150px;
+    opacity: 0.1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+    position: relative;
+    z-index: 1;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto 40px;
+    color: #555;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+}
+
+.btn {
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid;
+}
+
+.btn-primary {
+    background-color: var(--primary-green);
+    color: var(--text-light);
+    border-color: var(--primary-green);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(74, 124, 89, 0.3);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--primary-green);
+    border-color: var(--primary-green);
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-green);
+    color: var(--text-light);
+}
+
+/* Секции */
+section {
+    padding: 80px 20px;
+}
+
+section:nth-child(even) {
+    background-color: #fff;
+}
+
+section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 60px;
+    color: var(--text-dark);
+    position: relative;
+}
+
+section h2::after {
+    content: "🍂";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -10px;
+    font-size: 1.5rem;
+}
+
+/* О нас */
+.about-text {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 2;
+    color: #444;
+}
+
+/* Меню чая */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.tea-card {
+    background-color: #fff;
+    border: 1px solid #e0d8c8;
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.tea-card::before {
+    content: "🍃";
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 2rem;
+    opacity: 0.2;
+}
+
+.tea-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+}
+
+.tea-card h3 {
+    margin-bottom: 10px;
+    color: var(--primary-green);
+}
+
+.tea-card .origin {
+    font-style: italic;
+    color: #777;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+}
+
+.tea-card .price {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+}
+
+/* Церемонии */
+.ceremony-info {
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 40px;
+    border: 1px solid #e0d8c8;
+    text-align: center;
+}
+
+.ceremony-info p {
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+}
+
+.ceremony-details {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.detail-item {
+    background-color: var(--beige);
+    padding: 15px 25px;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+.detail-item span {
+    display: block;
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 5px;
+}
+
+/* Отзывы */
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.review-card {
+    background-color: #fff;
+    border-left: 4px solid var(--primary-green);
+    padding: 25px;
+    border-radius: 0 10px 10px 0;
+    position: relative;
+}
+
+.review-card::before {
+    content: '"';
+    position: absolute;
+    top: 20px;
+    left: 15px;
+    font-size: 4rem;
+    color: #e0d8c8;
+    font-family: serif;
+    line-height: 1;
+}
+
+.review-text {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 15px;
+    position: relative;
+    z-index: 1;
+}
+
+.review-author {
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+/* Контакты */
+.contacts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.contact-item {
+    text-align: center;
+}
+
+.contact-item h4 {
+    margin-bottom: 10px;
+    color: var(--primary-green);
+}
+
+.contact-item p {
+    color: #666;
+}
+
+/* Footer */
+footer {
+    background-color: var(--text-dark);
+    color: var(--text-light);
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.footer-social {
+    margin-top: 20px;
+}
+
+.footer-social a {
+    display: inline-block;
+    margin: 0 10px;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+    color: var(--primary-green);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .header-inner {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav ul {
+        gap: 15px;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .ceremony-details {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 100px 15px 60px;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    section h2 {
+        font-size: 2rem;
+    }
+
+    .menu-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .reviews-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contacts-grid {
+        grid-template-columns: 1fr;
+    }
+}
